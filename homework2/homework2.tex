@@ -1,0 +1,208 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[margin=1.0in]{geometry}
+
+\addtolength{\oddsidemargin}{0.18in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{0.32in}
+
+%\addtolength{\topmargin}{-.875in}
+%\addtolength{\textheight}{1.75in}
+	
+\usepackage{gensymb}
+\usepackage{fontspec}
+\setmainfont{Verdana}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\captionsetup[figure]{font=small}
+\usepackage{amsmath}
+\usepackage{cancel}
+%\usepackage[]{siunitx}
+%\usepackage[style=numeric,sorting=none]{biblatex}
+%\addbibresource{references.bib}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Ilja Tihhanovski, KFS2} % same for your university
+\lhead{LA kodutöö 2} % change this to your actual name
+\rfoot{\thepage}
+
+\title{Lineaaralgebra kodutöö 2}
+\author{Ilja Tihhanovski, KFS 2}
+\date{September 2020}
+
+\linespread{1.5}    
+%siin soovitatakse 1.25 kui ms wordi 1.5-le vastavat. https://latex.org/forum/viewtopic.php?t=28685
+\begin{document}
+
+% title
+%\maketitle
+
+
+\section{Ülesanne 1}
+Antud on punktid $A(2; 0; 4)$, $B(−1; 2; −3)$, $C(4; −3; −2)$ ja $D(−2; −1; −5)$.
+\begin{enumerate}
+
+%1. vektorid AB ja DC
+\item 
+\begin{align}
+    \vec{AB} &= (-1 - 2; 2 - 0; -3 - 4) = \underline{(-3; 2; -7)},\\
+    \vec{DC} &= (4 - (-2); -3 - (-1); -2 - (-5)) = \underline{(6; -2; 3)};
+\end{align}
+\textbf{Vastus}: $\vec{AB} = (-3; 2; -7)$, $\vec{DC} = (6; -2; 3)$.
+
+%2. vektorite BA~ ja DC~ pikkus
+\item
+Kasutame varem leitud (1, 2) vektorite $\vec{AB}$ ja $\vec{DC}$ koordinaate ning asjaolu, et $\vec{BA} = -\vec{AB})$:
+\begin{align}
+    \nonumber
+    \lvert\vec{BA}\rvert &= \lvert-(-3; 2; -7)\rvert = \lvert(3; -2; 7)\rvert = \sqrt{3^2 + (-2)^2 + 7^2} = \sqrt{9 + 4 + 49} = \underline{\sqrt{62}},\\
+    \nonumber
+    \lvert\vec{DC}\rvert &= \lvert(-6; -2; 3)\rvert = \sqrt{(-6)^2 + (-2)^2 + (3)^2} = \sqrt{36 + 4 + 9} =  \sqrt{49} = \underline{7};
+\end{align}
+\textbf{Vastus}: $\lvert\vec{BA}\rvert = \sqrt{62}$, $\lvert\vec{DC}\rvert = 7$.
+
+%3. lõigu BD keskpunkt M
+\item
+Lõigu $BD$ keskpunkti $M$ koordinaatide leidmiseks üks viis on liita vektor $\vec{BM}$ punkti $B$ koordinaatidele (või vektorile $\vec{OB}$). Kuna punkt $M$ on lõogu $BD$ keskpunkt, siis $\vec{BM} = \frac{1}{2}\vec{MD}$. Teisisõnu $\vec{OM} = \vec{OB} + \frac{1}{2}\vec{BD}$.\\
+(Siin ja edasi $O$ all mõtleme koordinaatide alguspunkti $(0; 0; 0)$ ja $\vec{OX}$ all punkti $X$ kohavektorit).
+\begin{align}
+    \nonumber
+    \vec{OM} &= (-1; 2; -3) + \frac{1}{2}(-2-(-1); -1-2; -5-(-3)) = \\
+    \nonumber
+    &=(-1; 2; -3) + \frac{1}{2}(-1; -3; -2) = \\
+    \nonumber
+    &=(-1; 2; -3) + (-\frac{1}{2}; -\frac{3}{2}; -1) = \\
+    \nonumber
+    &=\underline{(-1\frac{1}{2}; \frac{1}{2}; -4)}
+\end{align}
+\textbf{Vastus}: $M(-1,5; 0,5; -4)$.
+
+Teine võimalus lõigu keskpunkti leidmiseks, mis tuleb meelde, on valem, kus tuli poolitada lõigu otste koordinaatide summa: $X_{keskmine} = \frac{X_1 + X_2}{2}$.
+ \begin{align}
+    \nonumber
+    \begin{array}{l}
+     x_M = \frac{x_B + x_D}{2} = \frac{-1 -2}{2} = -\frac{3}{2} = -1,5\\
+     y_M = \frac{y_B + y_D}{2} = \frac{2 - 1}{2} = \frac{1}{2} = 0,5\\
+     z_M = \frac{z_B + z_D}{2} = \frac{-3 - 5}{2} = -\frac{8}{2} = -4\\
+     \end{array} \Bigg| &\Rightarrow M(-1,5; 0,5; -4)
+\end{align}
+Tegelikult teine valem järeldub esimesest:
+\begin{align}
+    \nonumber
+    \vec{OB} + \vec{BM} &= \vec{OB} + \frac{\vec{BD}}{2} =\\
+    \nonumber
+    &= \vec{OB} + \frac{\vec{OD} - \vec{OB}}{2} = \\ \nonumber
+    &= \vec{OB} + \frac{\vec{OD}}{2} - \frac{\vec{OB}}{2} \\ \nonumber
+    &= \frac{\vec{OB}}{2} + \frac{\vec{OD}}{2} =\\ \nonumber
+    &= \frac{\vec{OB} + \vec{OD}}{2}
+\end{align}
+
+%4. vektorite summa CA + BD
+\item
+\begin{align}
+    \nonumber
+    \vec{CA} + \vec{BD} &= (2 - 4; 0 - (-3); 4 - (-2)) + (-2 - (-1); -1 - 2; -5 - (-3)) =\\ \nonumber
+    &= (-2; 3; 6) + (-1; -3; -2) = (-2-1; 3-3; 6-2) = \underline{(-3; 0; 4)}
+\end{align}
+\textbf{Vastus}: $\vec{CA} + \vec{BD} = (-3; 0; 4)$.
+
+%5) vektorite vahe DC~ − AC~ ;
+\item
+\begin{align}
+    \nonumber
+    \vec{DC} - \vec{AC} &= (\vec{OC} - \vec{OD}) - (\vec{OC} - \vec{OA}) = \\ \nonumber
+    &= \cancel{\vec{OC}} - \vec{OD} - \cancel{\vec{OC}} + \vec{OA} = \\ \nonumber
+    &= \vec{OA} - \vec{OD} = \vec{DA} = \\  \nonumber
+    &= (2 - (-2); 0 - (-1); 4 - (-5)) = \underline{(4; 1; 9)}
+\end{align}
+\textbf{Vastus}: $\vec{DC} - \vec{AC} = (4; 1; 9)$.
+ 
+%6) vektori ja skalaari korrutis λBA~ , kui λ = −5;
+\item
+    Kasutame punktis 1 leitud $\vec{AB}$:
+    \begin{align}
+        \nonumber
+        \lambda\vec{BA} &= -5(-\vec{AB}) = 5\vec{AB} = 5(-3; 2; -7) = 
+        \underline{(-15; 10; -35)}
+    \end{align}
+    \textbf{Vastus}: $\lambda\vec{BA} = (-15; 10; -35)$.
+
+%7) vektoritele BD~ ja AC~ vastavad ühikvektorid;
+\item
+    $\vec{BD}_0$:
+    \begin{align}
+        \nonumber
+        \vec{BD} &= (-2 - (-1); -1 - 2; -5 - (-3)) = (-1; -3; -2),\\ 
+        \nonumber
+        \lvert BD \rvert &= \sqrt{(-1)^2 + (-3)^2 + (-2)^2} = \sqrt{1 + 9 + 4} + \sqrt{14}, \\ 
+        \nonumber
+        \vec{BD}_0 &= \frac{\vec{BD}}{\lvert BD \rvert} = \frac{(-1; -3; -2)}{\sqrt{14}} = \underline{(-\frac{1}{\sqrt{14}}; -\frac{3}{\sqrt{14}}; -\frac{2}{\sqrt{14}})};
+    \end{align}    
+    $\vec{AC}_0$:    
+    \begin{align}
+        \nonumber
+        \vec{AC} &= (4 - 2; -3 - 0; -2 - 4) = (2; -3; -6),\\
+        \nonumber
+        \lvert AC \rvert &= \sqrt{2^2 + (-3)^2 + (-6)^2} = \sqrt{4 + 9 + 36} + \sqrt{49} = 7,\\ 
+        \nonumber
+        \vec{AC}_0 &= \frac{\vec{AC}}{\lvert AC \rvert} = \frac{(2; -3; -6)}{7} = \underline{(\frac{2}{7}; -\frac{3}{7}; -\frac{6}{7})};
+    \end{align}
+    \textbf{Vastus}: $\vec{BD}_0 = (-\frac{1}{\sqrt{14}}; -\frac{3}{\sqrt{14}}; -\frac{2}{\sqrt{14}}), \vec{AC}_0 = (\frac{2}{7}; -\frac{3}{7}; -\frac{6}{7})$.
+
+%8) nurk punktile A vastava kohavektori OA~ ja x-telje vahel;
+\item
+    Lakoonilisuse huvides nimetame otsitav nurk vektori $\vec{OA}$ ja $x-$telje vahel $\alpha$-ks.
+    \begin{align}
+        \nonumber
+        \vec{OA} &= (2; 0; 4), \\
+        \nonumber
+        x_A &= 2, \\
+        \nonumber
+        \lvert OA \lvert &= \sqrt{2^2 + 0^2 + 4^2} = \sqrt{4 + 16} = \sqrt{20}, \\
+        \nonumber
+        \cos \alpha &= \frac{x_A}{\lvert OA \lvert} = \frac{2}{\sqrt{20}} = \frac{1}{\sqrt{5}},\\
+        \nonumber
+        \alpha &= \arccos \frac{1}{\sqrt{5}} \approx \underline{63,4\degree};
+    \end{align}
+    \textbf{Vastus}: $\alpha \approx 63,4\degree$.
+
+%9) nurk punktile D vastava kohavektori OD~ ja y-telje vahel;
+\item
+    $\alpha$ on otsitav nurk:
+    \begin{align}
+        \nonumber
+        \vec{OD} &= (-2; -1; -5), \\
+        \nonumber
+        y_D &= -1, \\
+        \nonumber
+        \lvert OD \lvert &= \sqrt{(-2)^2 + (-1)^2 + (-5)^2} = \sqrt{4 + 1 + 25} = \sqrt{30}, \\
+        \nonumber
+        \cos \alpha &= \frac{y_D}{\lvert OD \lvert} = \frac{-1}{\sqrt{30}},\\
+        \nonumber
+        \alpha &= \arccos -\frac{1}{\sqrt{30}} \approx \underline{100,5\degree};
+    \end{align}
+    \textbf{Vastus}: $\alpha \approx 100,5\degree$.\\
+    Oli oodata, et $\alpha > 90\degree$, sest mõõdame seda positiivse $y$-telje suunast ning $y_D$ on negatiivne ($90\degree < \alpha < 180\degree \Rightarrow \cos \alpha < 0 $).
+
+%10) nurk punktile C vastava kohavektori OC~ ja z-telje vahel;
+\item
+$\alpha$ on otsitav nurk:
+\begin{align}
+    \nonumber
+    \vec{OC} &= (4; -3; -2), \\
+    \nonumber
+    z_C &= -2, \\
+    \nonumber
+    \lvert OC \lvert &= \sqrt{4^2 + (-3)^2 + (-2)^2} = \sqrt{16 + 9 + 4} = \sqrt{29}, \\
+    \nonumber
+    \cos \alpha &= \frac{z_D}{\lvert OC \lvert} = \frac{-2}{\sqrt{29}},\\
+    \nonumber
+    \alpha &= \arccos -\frac{2}{\sqrt{29}} \approx \underline{111,8\degree};
+\end{align}
+\textbf{Vastus}: $\alpha \approx 111,8\degree$.\\
+
+\end{enumerate}
+
+\end{document}
