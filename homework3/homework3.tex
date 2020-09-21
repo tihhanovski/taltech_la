@@ -47,11 +47,11 @@
                 \textbf{Vastus: } Kolmnurga külgede pikkused on $3\sqrt{5}$, $\sqrt{65}$ ja $5\sqrt{2}$.
                 
             \item %kolmnurga sisenurgad
-                Kasutame eelmises punktis leitud vektorite - kolmnurga külgede pikkusi.
+                Kasutame eelmises punktis leitud vektorite koordinaate ja pikkusi.\\ Arvestame sellega, et $\lvert \vec{AB} \rvert = \lvert \vec{BA} \rvert$ ja $\vec{AB} = - \vec{BA}$:
                 \begin{align}
                     \nonumber
                     \angle A &= \arccos \frac{\langle \vec{AB}, \vec{AC} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{AC} \rvert} 
-                        = \arccos \frac{\langle \vec{AB}, -\vec{CA} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{AC} \rvert} 
+                        = \arccos \frac{\langle \vec{AB}, -\vec{CA} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{CA} \rvert} 
                         = \arccos \frac{\langle (3; -6; 0), (-5; -5; 0) \rangle}{\sqrt{45} \cdot \sqrt{50}} = \\ \nonumber
                         &= \arccos \frac{3 \cdot (-5) + (-6) \cdot (-5) + 0}{\sqrt{2250}} =
                         \arccos \frac{-15 + 30}{\sqrt{2250}} =\\ \nonumber
@@ -65,7 +65,7 @@
                         &=\arccos \frac{30}{\sqrt{2925}} \approx \underline{56\degree 18' 36''},\\ 
                         \nonumber
                     \angle C &= \arccos \frac{\langle \vec{CA}, \vec{CB} \rangle}{\lvert \vec{CA} \rvert \cdot \lvert \vec{CB} \rvert} 
-                        = \arccos \frac{\langle -\vec{CA}, -\vec{BC} \rangle}{\lvert \vec{CA} \rvert \cdot \lvert \vec{BC} \rvert} 
+                        = \arccos \frac{\langle \vec{CA}, -\vec{BC} \rangle}{\lvert \vec{CA} \rvert \cdot \lvert \vec{BC} \rvert} 
                         = \arccos \frac{\langle (5; 5; 0), (8; -1; 0) \rangle}{\sqrt{50} \cdot \sqrt{65}} = \\ \nonumber
                         &= \arccos \frac{5 \cdot 8 + 5 \cdot (-1) + 0}{\sqrt{3250}} =
                         \arccos \frac{40 - 5}{\sqrt{3250}} =\\ \nonumber
@@ -76,11 +76,11 @@
                     \nonumber
                     \angle A + \angle B + \angle C &= 71\degree 33' 54'' + 56\degree 18' 36'' + 52\degree 7' 30'' = 180\degree;
                 \end{align}
-                \textbf{Vastus: } Nurgad A, B ja C on vastavalt $71\degree 33' 54''$, $56\degree 18' 36''$ ja $52\degree 7' 30'$.
+                \textbf{Vastus: } Nurgad A, B ja C on vastavalt $71\degree 33' 54''$, $56\degree 18' 36''$ ja $52\degree 7' 30''$.
                 
             \item
                 $S_\triangle = \frac{1}{2}S_{r}$, kus rööpküliku pindala $S_{r} = \lvert \vec{AB} \times \vec{BC} \rvert$.\\
-                Võime võtta kaks suvalist vektorit. Kuna võtame vektorkorrutise absoluutväärtuse, ei ole vahet, kas kasutame $\vec{AB}$ või $\vec{BA}$. $\vec{AB} \times \vec{BC} = -(\vec{BA} \times \vec{BC})$.
+                Võime võtta kaks suvalist vektorit kolmest. Kuna võtame vektorkorrutise absoluutväärtuse, ei ole vahet, kas kasutame $\vec{AB}$ või $\vec{BA}$. $\vec{AB} \times \vec{BC} = -(\vec{BA} \times \vec{BC})$.
                 \begin{align}
                     \nonumber
                     \vec{AB} \times \vec{BC} &= (3; 6; 0) \times (-8; 1; 0) = \\ \nonumber
@@ -97,8 +97,8 @@
                         3 & -6\\
                         -8 & 1
                         \end{vmatrix}
-                    \end{pmatrix} =  \\nonumber
-                    &= (0; 0; 3 \cdot 1 - (-6) \cdot (-8)) 0 (0; 0; -45),\\ \nonumber
+                    \end{pmatrix} =  \\ \nonumber
+                    &= (0; 0; 3 \cdot 1 - (-6) \cdot (-8)) = (0; 0; -45),\\ \nonumber
                     S_\triangle &= \frac{1}{2}\lvert \vec{AB} \times \vec{BC} \rvert = \frac{\sqrt{(-45)^2}}{2} = \frac{45}{2} = \underline{22,5};
                 \end{align}
                 \textbf{Vastus: }Kolmnurga pindala on 22,5 ruutühikut.
@@ -148,7 +148,7 @@
                     (\vec{a} \vec{b} \vec{c}) &=
                     \begin{vmatrix}
                         4 & -2 & 5 \\
-                        1 & 0 & 3 \\
+                        -1 & 0 & 3 \\
                         1 & 2 & -4
                     \end{vmatrix} = \\ \nonumber
                     &= 4 \cdot 0 \cdot (-4) + (-2) \cdot 3 \cdot 1 + 5 \cdot (-1) \cdot 2 - (5 \cdot 0 \cdot 1 + (-2) \cdot (-1) \cdot (-4) + 4 \cdot 3 \cdot 2) = \\ \nonumber
@@ -159,12 +159,12 @@
                     \nonumber
                     (\vec{a} \vec{b} \vec{c}) &= \langle (\vec{a} \times \vec{b}) \cdot \vec{c} \rangle = -6 \cdot 1 + (-17) \cdot 2 + (-2) \cdot (-4) = -6 - 34 + 8 = \underline{-32},
                 \end{align}
-            \item Rööpküliku pindala:
+            \item Rööpküliku pindala leidmiseks vajaliku $\vec{a}$ ja $\vec{b}$ vektorkorrutise leidsime punktis 1.
                 \begin{align}
                     \nonumber
                     S_{\vec{a}\vec{b}} &= \lvert \vec{a} \times \vec{b} \rvert = \sqrt{(-6)^2 + (-17)^2 + (-2)^2} = \sqrt{36 + 289 + 4} = \underline{\sqrt{329}},
                 \end{align}
-            \item Rööptahuka ruumala:
+            \item Rööptahuka ruumala leidmiseks vajaliku segakorrutise leidsime punktis 2.
                 \begin{align}
                     \nonumber
                     V_{\vec{a}\vec{b}\vec{c}} &= \lvert (\vec{a} \vec{b} \vec{c}) \rvert = \lvert -32 \rvert = \underline{32};
