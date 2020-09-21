@@ -1,0 +1,174 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[margin=1.0in]{geometry}
+\usepackage[utf8]{inputenc}
+
+\addtolength{\oddsidemargin}{0.18in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{0.32in}
+
+%TODO: why it breaks latex?
+%\usepackage{fontspec}
+%\setmainfont{Verdana}
+
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+
+\usepackage{amsmath}
+\usepackage{cancel}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Ilja Tihhanovski, KFS2}
+\lhead{LA kodutöö 3}
+\rfoot{\thepage}
+
+\title{Lineaaralgebra kodutöö 2}
+\author{Ilja Tihhanovski, KFS 2}
+\date{September 2020}
+
+\linespread{1.5}    
+
+\begin{document}
+
+    \section{Ülesanne 1}
+        Kolmnurga tipud: A(1; 4; 1), B(4; -2; 1), C(-4; -1; 1).
+        \begin{enumerate}
+            \item %kolmnurga külgede pikkused
+                \begin{align}
+                    \nonumber
+                    \vec{AB} &= (4 - 1; -2 - 4; 1 - 1) = (3; -6; 0),\\ \nonumber
+                    \vec{BC} &= (-4 - 4; -1 - (-2); 1 - 1) = (-8; 1; 0),\\ \nonumber
+                    \vec{CA} &= (1 - (-4); 4 - (-1); 1 - 1) = (5; 5; 0), \\ \nonumber
+                    \lvert\vec{AB}\rvert &= \sqrt{3^2 + (-6)^2 + 0^2} = \sqrt{9 + 36} = \sqrt{45} = \underline{3\sqrt{5}}, \\ \nonumber
+                    \lvert\vec{BC}\rvert &= \sqrt{(-8)^2 + 1^2 + 0^2} = \sqrt{64 + 1} = \underline{\sqrt{65}}, \\ \nonumber
+                    \lvert\vec{CA}\rvert &= \sqrt{5^2 + 5^2 + 0^2} = \sqrt{25 + 25} = \sqrt{50} = \underline{5\sqrt{2}};
+                \end{align}
+                \textbf{Vastus: } Kolmnurga külgede pikkused on $3\sqrt{5}$, $\sqrt{65}$ ja $5\sqrt{2}$.
+                
+            \item %kolmnurga sisenurgad
+                Kasutame eelmises punktis leitud vektorite - kolmnurga külgede pikkusi.
+                \begin{align}
+                    \nonumber
+                    \angle A &= \arccos \frac{\langle \vec{AB}, \vec{AC} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{AC} \rvert} 
+                        = \arccos \frac{\langle \vec{AB}, -\vec{CA} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{AC} \rvert} 
+                        = \arccos \frac{\langle (3; -6; 0), (-5; -5; 0) \rangle}{\sqrt{45} \cdot \sqrt{50}} = \\ \nonumber
+                        &= \arccos \frac{3 \cdot (-5) + (-6) \cdot (-5) + 0}{\sqrt{2250}} =
+                        \arccos \frac{-15 + 30}{\sqrt{2250}} =\\ \nonumber
+                        &=\arccos \frac{15}{\sqrt{2250}} \approx \underline{71\degree 33' 54''},\\ 
+                        \nonumber
+                    \angle B &= \arccos \frac{\langle \vec{BA}, \vec{BC} \rangle}{\lvert \vec{BA} \rvert \cdot \lvert \vec{BC} \rvert} 
+                        = \arccos \frac{\langle -\vec{AB}, \vec{BC} \rangle}{\lvert \vec{AB} \rvert \cdot \lvert \vec{BC} \rvert} 
+                        = \arccos \frac{\langle (-3; 6; 0), (-8; 1; 0) \rangle}{\sqrt{45} \cdot \sqrt{65}} = \\ \nonumber
+                        &= \arccos \frac{3 \cdot 8 + 6 \cdot 1 + 0}{\sqrt{2925}} =
+                        \arccos \frac{24 + 6}{\sqrt{2925}} =\\ \nonumber
+                        &=\arccos \frac{30}{\sqrt{2925}} \approx \underline{56\degree 18' 36''},\\ 
+                        \nonumber
+                    \angle C &= \arccos \frac{\langle \vec{CA}, \vec{CB} \rangle}{\lvert \vec{CA} \rvert \cdot \lvert \vec{CB} \rvert} 
+                        = \arccos \frac{\langle -\vec{CA}, -\vec{BC} \rangle}{\lvert \vec{CA} \rvert \cdot \lvert \vec{BC} \rvert} 
+                        = \arccos \frac{\langle (5; 5; 0), (8; -1; 0) \rangle}{\sqrt{50} \cdot \sqrt{65}} = \\ \nonumber
+                        &= \arccos \frac{5 \cdot 8 + 5 \cdot (-1) + 0}{\sqrt{3250}} =
+                        \arccos \frac{40 - 5}{\sqrt{3250}} =\\ \nonumber
+                        &=\arccos \frac{35}{\sqrt{3250}} \approx \underline{52\degree 7' 30''};
+                \end{align}
+                Kontrollimiseks võime liita saadud tulemused - kolmnurga nurkade summa peab võrduma 180\degree:
+                \begin{align}
+                    \nonumber
+                    \angle A + \angle B + \angle C &= 71\degree 33' 54'' + 56\degree 18' 36'' + 52\degree 7' 30'' = 180\degree;
+                \end{align}
+                \textbf{Vastus: } Nurgad A, B ja C on vastavalt $71\degree 33' 54''$, $56\degree 18' 36''$ ja $52\degree 7' 30'$.
+                
+            \item
+                $S_\triangle = \frac{1}{2}S_{r}$, kus rööpküliku pindala $S_{r} = \lvert \vec{AB} \times \vec{BC} \rvert$.\\
+                Võime võtta kaks suvalist vektorit. Kuna võtame vektorkorrutise absoluutväärtuse, ei ole vahet, kas kasutame $\vec{AB}$ või $\vec{BA}$. $\vec{AB} \times \vec{BC} = -(\vec{BA} \times \vec{BC})$.
+                \begin{align}
+                    \nonumber
+                    \vec{AB} \times \vec{BC} &= (3; 6; 0) \times (-8; 1; 0) = \\ \nonumber
+                    &= \begin{pmatrix}
+                        \begin{vmatrix}
+                        -6 & 0\\
+                        1 & 0
+                        \end{vmatrix};
+                        -\begin{vmatrix}
+                        3 & 0\\
+                        -8 & 0
+                        \end{vmatrix};
+                        \begin{vmatrix}
+                        3 & -6\\
+                        -8 & 1
+                        \end{vmatrix}
+                    \end{pmatrix} =  \\nonumber
+                    &= (0; 0; 3 \cdot 1 - (-6) \cdot (-8)) 0 (0; 0; -45),\\ \nonumber
+                    S_\triangle &= \frac{1}{2}\lvert \vec{AB} \times \vec{BC} \rvert = \frac{\sqrt{(-45)^2}}{2} = \frac{45}{2} = \underline{22,5};
+                \end{align}
+                \textbf{Vastus: }Kolmnurga pindala on 22,5 ruutühikut.
+        \end{enumerate}
+        
+    \section{Ülesanne 2}
+        $\vec{a} = (4; -2; 5), \vec{b} = (-1; 0; 3), \vec{c} = (1; 2; -4)$:
+        \begin{enumerate}
+            \item Vektorkorrutis $\vec{a} \times \vec{b}$:
+                \begin{align}
+                    \nonumber
+                    \vec{a} \times \vec{b} &= 
+                    \begin{pmatrix}
+                        \begin{vmatrix}
+                            a_2 & a_3 \\
+                            b_2 & b_3
+                        \end{vmatrix};
+                        -\begin{vmatrix}
+                            a_1 & a_3 \\
+                            b_1 & b_3
+                        \end{vmatrix};
+                        \begin{vmatrix}
+                            a_1 & a_2 \\
+                            b_1 & b_2
+                        \end{vmatrix}
+                    \end{pmatrix}
+                    = \begin{pmatrix}
+                        \begin{vmatrix}
+                            -2 & 5 \\
+                            0 & 3
+                        \end{vmatrix};
+                        -\begin{vmatrix}
+                            4 & 5 \\
+                            -1 & 3
+                        \end{vmatrix};
+                        \begin{vmatrix}
+                            4 & -2 \\
+                            -1 & 0
+                        \end{vmatrix}
+                    \end{pmatrix} = \\ \nonumber
+                    &=(-2 \cdot 3 - 5 \cdot 0; -(4 \cdot 3 - 5 \cdot (-1)); 4 \cdot 0 - (-2) \cdot (-1)) = \\ \nonumber
+                    &= (-6 - 0; -(12 - (-5)); 0 - 2) = \underline{(-6; -17; -2)},
+                \end{align}
+            \item Segakorrutis $(\vec{a} \vec{b} \vec{c})$:
+                \begin{align}
+                    \nonumber
+                    (\vec{a} \vec{b} \vec{c}) &=
+                    \begin{vmatrix}
+                        4 & -2 & 5 \\
+                        1 & 0 & 3 \\
+                        1 & 2 & -4
+                    \end{vmatrix} = \\ \nonumber
+                    &= 4 \cdot 0 \cdot (-4) + (-2) \cdot 3 \cdot 1 + 5 \cdot (-1) \cdot 2 - (5 \cdot 0 \cdot 1 + (-2) \cdot (-1) \cdot (-4) + 4 \cdot 3 \cdot 2) = \\ \nonumber
+                    &= 0 - 6 - 10 - 0 + 8 - 24 = \underline{-32},
+                \end{align}
+                Saame segakorrutist leida ka teisiti, punktis 1 leitud vektorkorrutise abil:
+                \begin{align}
+                    \nonumber
+                    (\vec{a} \vec{b} \vec{c}) &= \langle (\vec{a} \times \vec{b}) \cdot \vec{c} \rangle = -6 \cdot 1 + (-17) \cdot 2 + (-2) \cdot (-4) = -6 - 34 + 8 = \underline{-32},
+                \end{align}
+            \item
+                \begin{align}
+                    \nonumber
+                    S_{\vec{a}\vec{b}} &= \lvert \vec{a} \times \vec{b} \rvert = \sqrt{(-6)^2 + (-17)^2 + (-2)^2} = \sqrt{36 + 289 + 4} = \underline{\sqrt{329}},
+                \end{align}
+            \item
+                \begin{align}
+                    \nonumber
+                    V_{\vec{a}\vec{b}\vec{c}} &= \lvert (\vec{a} \vec{b} \vec{c}) \rvert = \lvert -32 \rvert = \underline{32};
+                \end{align}
+            \end{enumerate}
+        \textbf{Vastus: } Vektorkorrutis $\vec{a} \times \vec{b} = (-6; -17; -2)$ , Segakorrutis $(\vec{a} \vec{b} \vec{c}) = -32$, rööpküliku pindala on $\sqrt{329}$ ruutühikut, rööptahuka ruumala on 32 kuupühikut.
+\end{document}
